@@ -13,14 +13,17 @@
     name: ...
     ```
  
- 
  4. Copy the content of the file (e.g. `https://raw.githubusercontent.com/IBM/MAX-Object-Detector/master/max-object-detector.yaml`) into a text editor. You'll need it in a later step when you deploy the model's Docker image.
 
 ## 2. Deploy the MAX model Docker image to Kubernetes using the IBM Cloud web console
 
  1. Open the [Container resource page in the IBM Cloud Web Console](https://console.bluemix.net/containers-kubernetes/clusters). 
- 2. Locate the cluster in the resource list if you already have access to a cluster. Otherwise create a new cluster. 
+    ![cloud container resources](images/cloud_kubernetes_service_instances.png)
+ 2. Locate the cluster in the resource list if you already have access to a cluster. Otherwise create a new cluster. (This might take a couple minutes.)
  2. Open the cluster's console page. 
+    ![cluster console](images/cluster_console.png)
+    
+ > Only continue with the steps below when the clsuter status is *Normal*. If you've just provisioned the cluster wait.
  
 ### Identify the public IP address of your Kubernetes worker node(s) 
  1. Select the **Worker Nodes** tab.
