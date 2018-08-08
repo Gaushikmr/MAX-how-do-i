@@ -32,6 +32,7 @@
 ### Deploy the MAX model Docker image
 
  1. Open the **Kubernetes Dashboard**.
+    > If an error message is displayed reload the cluster console page and try to open the Kubernetes Dashboard again.
  2. Click **+CREATE**.
  3. In the **CREATE FROM TEXT INPUT** tab paste the raw content of the Kubernetes configuration file. 
  
