@@ -1,8 +1,10 @@
-#
+# Deploy an IBM Code Model Asset to Kubernetes on the IBM Cloud using the Web UI
+
 
 ## Prerequisites
  1. Identify the [MAX model](https://developer.ibm.com/code/exchanges/models/) that you want to deploy on this Kubernetes instance.
  2. In the model's GitHub repository (e.g. `https://github.com/IBM/MAX-Object-Detector`) locate the Kubernetes configuration file, which has a `.yaml` extension (e.g. `max-object-detector.yaml`).
+     > If no configuration file is present, the model cannot be deployed to Kubernetes as is.
  3. Open the configuration file in GitHub and switch to the **raw** view. The first few lines should look as follows:
     ```
     apiVersion: v1
