@@ -54,4 +54,4 @@
   1. Open `http://<public_ip>:<public_port>` in a new browser window, replacing `<public_ip>` with the IP address of one of your worker nodes and <public_port> with the model's public port, e.g. `http://<public_ip>:32323`.  The model's Swagger specification should be displayed.
   
  ### Explore the model
-  2. Follow the instructions in the model's GitHub repository README.
+  1. Follow the instructions in the model's GitHub repository README.
