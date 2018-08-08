@@ -3,7 +3,15 @@
 ## Prerequisites
  1. Identify the [MAX model](https://developer.ibm.com/code/exchanges/models/) that you want to deploy on this Kubernetes instance.
  2. In the model's GitHub repository (e.g. `https://github.com/IBM/MAX-Object-Detector`) locate the Kubernetes configuration file, which has a `.yaml` extension (e.g. `max-object-detector.yaml`).
- 3. Open the configuration file in GitHub and switch the the **raw** view.
+ 3. Open the configuration file in GitHub and switch the the **raw** view. The first few lines should look as follows:
+    ```
+    apiVersion: v1
+    kind: Service
+    metadata:
+    name: ...
+    ```
+ 
+ 
  4. Copy the content of the file (e.g. `https://raw.githubusercontent.com/IBM/MAX-Object-Detector/master/max-object-detector.yaml`) into a text editor. You'll need it in a later step when you deploy the model's Docker image.
 
 ## Deploy the MAX model Docker image to Kubernetes using the IBM Cloud web console
@@ -14,7 +22,7 @@
  
 ### Identify the public IP address of your Kubernetes worker node(s) 
  1. Select the **Worker Nodes** tab.
- 2. Note the **Public IP** address of each listed worker node. (There is only one if you are connected to a free cluster.)
+ 2. Note the **Public IP** address of each listed worker node, e.g. `nnn.nnn.nnn.nnn`. (There is only one if you are connected to a free cluster.)
  
 ### Deploy the MAX model Docker image
 
@@ -37,3 +45,13 @@
   4. Verify that a *Pod* matching the expected name is listed. The pod status should be listed as *Running*.
  
  ## Access the deployed MAX model
+ 
+ ### Identify the model's public port
+  1. In the **Services** section locate the model's service entry.
+  2. Take note of the second port number (the one that is not `5000`) in the *Internal endpoints* column. It's typically a value between  `30000` and `32767`. This is the public port that 
+  
+ ### Access the model's Swagger specification
+  1. Open `http://<public_ip>:<public_port>` in a new browser window, replacing `<public_ip>` with the IP address of one of your worker nodes and <public_port> with the model's public port, e.g. `http://<public_ip>:32323`.  The model's Swagger specification should be displayed.
+  
+ ### Explore the model
+  2. Follow the instructions in the model's GitHub repository README.
